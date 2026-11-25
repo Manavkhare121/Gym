@@ -1,0 +1,241 @@
+:root {
+  /* Color Palette matching reference */
+  --color-primary: #e3ff04;         /* Vibrant Neon Lime */
+  --color-dark-teal: #063434;       /* Deep Signature Forest Teal */
+  --color-black: #0a0c00;           /* Jet Black */
+  --color-dark-bg: #070e0e;         /* Background Dark */
+  --color-dark-card: #0c1818;       /* Card Dark */
+  --color-dark-card-hover: #102222; /* Card Hover */
+  --color-text-white: #ffffff;      /* Primary White */
+  --color-text-muted: #d7dddd;      /* Light Muted Text */
+  --color-text-subtle: #899b9b;     /* Dim Muted Text */
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-hover: rgba(227, 255, 4, 0.4);
+  --color-border-lime: #e3ff04;
+
+  /* Typography */
+  --font-main: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Oswald", "Inter Tight", sans-serif;
+  --font-accent: "Inter Tight", sans-serif;
+
+  /* Spacing & Layout */
+  --container-max-width: 1240px;
+  --section-padding-y: 100px;
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --border-radius-pill: 100px;
+  --border-radius-card: 20px;
+  --border-radius-sm: 8px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Section Header Typography Presets */
+.section-title-large {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--color-text-white);
+}
+
+.section-subtitle {
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin-top: 16px;
+  font-weight: 400;
+}
+
+/* Reusable Pill Action Button with Circular Arrow */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 6px 5px 24px;
+  border-radius: var(--border-radius-pill);
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-main);
+  transition: color 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  gap: 12px;
+  z-index: 1;
+}
+
+.btn-pill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: inherit;
+  transform: translateY(102%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.btn-pill:hover::before {
+  transform: translateY(0%);
+}
+
+.btn-pill > span,
+.btn-pill > a,
+.btn-pill .btn-arrow-circle {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-pill-lime {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-pill-lime:hover {
+  color: var(--color-black);
+  border-color: #ffffff;
+}
+
+.btn-pill .btn-arrow-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.btn-pill .btn-arrow-circle svg {
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.btn-pill:hover .btn-arrow-circle svg {
+  animation: airplaneFly 0.45s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+
+@keyframes airplaneFly {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  45% {
+    transform: translate(160%, -160%);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-160%, 160%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.btn-pill-lime .btn-arrow-circle {
+  background-color: var(--color-text-white);
+  color: var(--color-dark-teal);
+}
+
+.btn-pill-lime:hover .btn-arrow-circle {
+  background-color: var(--color-black);
+  color: #ffffff;
+}
+
+.btn-pill-dark {
+  background-color: var(--color-dark-teal);
+  color: var(--color-text-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-pill-dark:hover {
+  color: var(--color-black);
+  border-color: #ffffff;
+}
+
+.btn-pill-dark .btn-arrow-circle {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+.btn-pill-dark:hover .btn-arrow-circle {
+  background-color: var(--color-black);
+  color: #ffffff;
+}
+
+/* Subtle Badge */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 50px;
+  background: rgba(227, 255, 4, 0.1);
+  border: 1px solid rgba(227, 255, 4, 0.3);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}

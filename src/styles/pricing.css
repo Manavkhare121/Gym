@@ -1,0 +1,132 @@
+.pricing-section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  background-color: var(--color-dark-bg);
+  position: relative;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background-color: var(--color-dark-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-card);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.pricing-card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.pricing-card.popular {
+  background-color: #0d2222;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 10px 40px rgba(227, 255, 4, 0.15);
+}
+
+.pricing-card.popular::before {
+  content: "RECOMMENDED";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.pricing-card-top {
+  margin-bottom: 30px;
+}
+
+.pricing-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+  margin-bottom: 12px;
+}
+
+.pricing-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.pricing-amount {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.pricing-duration {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.pricing-plan-badge {
+  font-size: 15px;
+  color: var(--color-text-subtle);
+  font-weight: 500;
+}
+
+.pricing-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pricing-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.pricing-feature-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.pricing-btn {
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media (max-width: 990px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

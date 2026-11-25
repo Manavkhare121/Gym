@@ -1,0 +1,12 @@
+export { imageData } from "./imageData";
+export { navbarData } from "./navbarData";
+export { heroData } from "./heroData";
+export { trainingData } from "./trainingData";
+export { trainerData } from "./trainerData";
+export { activitiesData } from "./activitiesData";
+export { teamData } from "./teamData";
+export { pricingPlans, pricingHeader } from "./pricingData";
+export { faqData } from "./faqData";
+export { blogData } from "./blogData";
+export { ctaData } from "./ctaData";
+export { footerData } from "./footerData";

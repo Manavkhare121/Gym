@@ -1,0 +1,120 @@
+.activities-section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  background-color: var(--color-dark-bg);
+}
+
+.activities-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 54px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.activities-header .section-title-large {
+  max-width: 560px;
+  text-align: left;
+}
+
+.activities-header .section-subtitle {
+  max-width: 440px;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.activity-card {
+  background-color: var(--color-dark-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.activity-card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.activity-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-content {
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.activity-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+}
+
+.activity-desc {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.activity-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: 8px;
+  transition: gap 0.25s ease;
+}
+
+.activity-link:hover {
+  gap: 12px;
+}
+
+.activity-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 900px) {
+  .activities-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .activities-header .section-subtitle {
+    text-align: left;
+  }
+
+  .activities-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
